@@ -1,0 +1,13 @@
+Do not merge this pull request! It is just for me to add my feedback on your Cat App with Mongoose.
+ 
+Homework Feedback for Cat App with Mongoose:
+ 
+Functionality:
+ - Completion: Almost all of your features work. The /cats/bycolor/:color route causes the app to crash any time there are more than 2 cats in your database. Your advanced queries were fine and worked flawlessly. (20/20)
+ - Bug Free: The /cats/bycolor/:color route had a res.render statement inside of the for loop which works for the cases when there are 0 - 1 cats in the database. If there is more than one cat in the database, the client sees you trying to send it data for each cat in the database which causes the app to crash. I think you could have caught this error with better testing but I understand that we hadn't gotten to our testing assignment yet. You did a better job of thinking of edge cases for this app than for your original cat app as you don't have server send the client anything when you try and delete a cat when there are no cats in the database. (8/10)
+
+ Quality:
+  - Good Coding Practices: Your code is well-organized with helper functions at the top of your cats.js file and the functions for each route at the bottom. I still think you could clean things up by creating a routes object that contains all of the functions for your routes and then exporting just that object, instead of all of the individual functions. I also think your Mongoose operations could have been cleaner since you can have Mongoose sort by age for you automatically, instead of writing your own sort function and having your server run it before calling res.render. In creating a new cat, I would have server send the new cat to the client only after it had been saved to the database without error. Otherwise, you have the case where client thinks a new cat has been saved to the database but there was an error in the save operation so this cat doesn't actually exist in the database. This would confuse your users immensely! (8/10)
+  - Readability: Your code is well-commented and organized which makes it very nice to read. I don't think you actually need index.js if it is just returning the handlebars template for your home page. You could easily put that in a routes object in cats.js with all your other routes. But other than that, your functions and variable names are clear. (10/10)
+ 
+ Nice work!

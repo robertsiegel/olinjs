@@ -81,7 +81,8 @@ var getCatsByColor = function(req, res, next, value) {
       if (cats[i].color == value) {
         colorCats.push(cats[i]);
       }
-    res.render("cats", {"cats": sortByAge(colorCats)});
+    res.render("cats", {"cats": sortByAge(colorCats)}); //causes your app to crash anytime there is more than 1 cat in your database because you try and send res.render for each iteration in the loop
+    // you want to move this res.render statement out of the for loop
     }
   });
 };
