@@ -1,0 +1,13 @@
+Do not merge this pull request! It is just for me to add my feedback on your Cat App.
+
+Homework Feedback for Cat App:
+
+Functionality:
+ - Completion: All of your features appear to work. (20/20)
+ - Bug Free: Your app is bug free. (10/10)
+
+Quality:
+ - Good Coding Practices: Instead of repeating module.exports for each route's function, you could just create a single object with the functions inside of it, and then export that object. This would clean up your routes/cats.js file a little bit. I would also look into using some functions native to Javascript that would help do some of the functions, like filter for finding cats of a certain color and pre-sorting the array of cats by age and then removing the last one, which would be the oldest. I would also remember to check edge cases because when I try to delete a cat that doesn't exist, I get the text that says a cat "was and when it was sent to a farm" which is weird. Overall, nice job! (10/10)
+ - Readability: Functions and variables are appropriately named and well-commented. You missed some comments on functions and could use cleaner, helper functions but everything looks good. (10/10)
+
+ Nice work!
