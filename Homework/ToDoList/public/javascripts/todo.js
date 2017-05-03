@@ -101,8 +101,8 @@ var ToDoForm = React.createClass({
   handleSubmit: function(e){
     e.preventDefault();
     var inputText = this.state.task
-    // Nice edge-case checking here!
-    if(inputText == ''){
+    // Nice edge-case checking here! Try to use triple-equals when comparing strings.
+    if(inputText === ''){
       //prevents the user from entering a blank task
       return;
     }
@@ -189,7 +189,7 @@ var ToDoApp = React.createClass({
   handleCompletedTask: function(task) {
     var tasks = this.state.tasks;
     for (var i in tasks) {
-      if (tasks[i].key == task.key) {
+      if (tasks[i].key === task.key) {
         tasks[i].active = false;
         break; //Ends the loop when the task is found
       }
@@ -204,7 +204,7 @@ var ToDoApp = React.createClass({
 
     //finds all active tasks for the ToDoCount component
     for (var i in this.state.tasks) {
-      if (this.state.tasks[i].active == true) {
+      if (this.state.tasks[i].active) {
         activeTasks = activeTasks.concat(this.state.tasks[i]);
       }
     }
@@ -212,15 +212,15 @@ var ToDoApp = React.createClass({
     //sorts tasks based on the filter applied by the user
     // Not a major thing, but I'd personally use a switch statement
     // if you need more than two "if" statements
-    if (this.state.sortBy == 'all') {
+    if (this.state.sortBy === 'all') {
       tasks = this.state.tasks;
     }
-    else if (this.state.sortBy == 'active') {
+    else if (this.state.sortBy === 'active') {
       tasks = activeTasks;
     }
-    else if (this.state.sortBy == 'completed') {
+    else if (this.state.sortBy === 'completed') {
       for (var i in this.state.tasks) {
-        if (this.state.tasks[i].active == false) {
+        if (!this.state.tasks[i].active) {
           tasks = tasks.concat(this.state.tasks[i]);
         }   
       }
